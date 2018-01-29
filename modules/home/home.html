@@ -1,0 +1,51 @@
+<ol class="breadcrumb">
+    <li class="active">Home </li>
+  </ol>
+
+<div class="container">
+  <div class="table-responsive">          
+    <table class="table">
+        <thead>
+            <tr>
+              <th>#</th>
+              <th>Company Name</th>
+              <th>Type</th>
+              <th>Market Cap</th>
+              <th>Headquarter</th>
+              <th>Key Contact</th>
+              <th>Status</th>
+              <th>Last FY growth</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="company in companyList">
+              <td>{{company.id}}</td>
+              <td>{{company.companyName}}</td>
+              <td>{{company.companyType.type}}</td>
+              <td>{{company.marketCap}}</td>
+              <td>{{company.address}}</td>
+              <td>{{company.keyContact}}</td>
+              <td>{{company.status.status}}</td>
+              <td>{{company.lastFYGrowthPerc}}</td>
+              <td>
+                <a href="#" class="btn btn-info btn-sm">
+                  <span class="glyphicon glyphicon-edit"></span> Edit
+                </a>
+
+                <a href="#" class="btn btn-danger btn-sm">
+                    <span class="glyphicon glyphicon-remove"></span> Remove 
+                  </a>
+              </td>
+            </tr>
+          </tbody>
+
+
+    </table>
+    </div>
+
+
+
+
+      </div>
