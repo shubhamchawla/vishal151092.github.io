@@ -3,9 +3,14 @@
     <li class="active"> Add Company </li>
   </ol>
 
-
+  
   
 <div class="container">
+    <div ng-show="success" class="alert alert-success alert-dismissable fade in">
+        <span  class="close cross" data-dismiss="alert" aria-label="close">×</span>
+        <strong> {{message}}</strong>
+      </div>
+  
     <h2>Add Company</h2>
     <form class="" >
 
@@ -31,7 +36,7 @@
         <div class="form-group col-md-6">
             <label class="control-label col-sm-2" for="type"> Type:</label>
             <div class="col-sm-10">
-                <select class="form-control" ng-model="company.type" ng-options="type.type for type in typeList" name="type">
+                <select class="form-control" ng-model="company.type" ng-options="type for type in typeList" name="type">
                   </select>
             </div>
           </div>
@@ -40,7 +45,7 @@
           <div class="form-group col-md-6">
               <label class="control-label col-sm-2" for="headquarter"> Headquarter:</label>
               <div class="col-sm-10">
-                <textarea  class="form-control" ng-model="company. " id="headquarter" placeholder="Enter Headquarter Address" name="headquarter"></textarea>
+                <textarea  class="form-control" ng-model="company.headquarter" id="headquarter" placeholder="Enter Headquarter Address" name="headquarter"></textarea>
               </div>
             </div>
 
@@ -74,7 +79,7 @@
         <div class="form-group col-md-6">
             <label class="control-label col-sm-2" for="status"> Status:</label>
             <div class="col-sm-10">
-                <select class="form-control" ng-model="company.status" ng-options="status.status for status in statusList" name="status">
+                <select class="form-control" ng-model="company.status" ng-options="status for status in statusList" name="status">
                   </select>
             </div>
           </div>
@@ -96,9 +101,23 @@
   
       <div class="form-group">        
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default" ng-click="submitForm();">Submit</button>
+          <button type="submit" class="btn btn-primary btn-lg pull-right submit-btn" ng-click="submitForm();">Submit</button>
         </div>
       </div>
     </form>
   </div>
   
+
+
+  <style>
+  .alert-dismissable{
+    width: 55%;
+    margin-left: 22%;
+  }
+  .cross{
+    cursor: pointer;
+  }
+  .submit-btn{
+    margin-right: 30px;
+  }
+  </style>

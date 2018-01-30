@@ -1,31 +1,60 @@
 'use strict'
 angular.module("myApp").controller('addCompanyController', function($scope, $rootScope) {
     $scope.message = 'Look! I am an about page.';
+    $scope.success=false;
 
+    $scope.company={
+        id: 0,
+        name: "",
+        type: "",
+        marketCap : "",
+        status: "",
+        headquarter: "",
+        contact: "",
+        growth: ""
 
-    $scope.companye={};
+    };
 
 
     $scope.typeList= [
-        {id:1, type:"Listed"},
-        {id:2, type:"Startup"},
-        {id:3, type:"Bankrupt"},
-        {id:4, type:"Private Limited "}
+        "Listed",
+        "Startup",
+        "Bankrupt",
+        "Private Limited "
         
     ];
 
-    $scope.statusList=[
-        {id:1, status:"Open"},
-        {id:2, status:"Pending"},
-        {id:3, status:"Approved"},
-        {id:4, status:"Rejected"},
-        {id:5, status:"On Hold"}
+    $scope.statusList= [
+        "Open",
+        "Pending",
+        "Approved",
+        "Rejected",
+        "On Hold"
     ];
 
 
+    if($rootScope.id !== undefined){
+
+        angular.forEach($rootScope.companyList, function(val,key){
+            
+            if(val.id == $rootScope.id){
+               $scope.company.id= val.id;
+               $scope.company.name= val.companyName;
+               $scope.company.type= val.companyType;
+               $scope.company.marketCap= val.marketCap;
+               $scope.company.status= val.status;
+               $scope.company.headquarter= val.address;
+               $scope.company.contact= val.keyContact;
+               $scope.company.growth= val.lastFYGrowthPerc;
+               
+            }
+        });
+    }
+   
+
     $scope.submitForm= function(){
 
-        console.log($scope.company);
+    if($rootScope.id === undefined){    
     var company={
         id: $rootScope.companyList.length+1,
         companyName: $scope.company.name,
@@ -37,11 +66,32 @@ angular.module("myApp").controller('addCompanyController', function($scope, $roo
         lastFYGrowthPerc: $scope.company.growth
     };
 
-
-
     $rootScope.companyList.push(company);
     $scope.company={};
+    $scope.message="Company details added Successfully";
+    $scope.success=true;
     }
+    else{
 
+        angular.forEach($rootScope.companyList, function(val,key){
+            
+            if(val.id == $rootScope.id){
+                $rootScope.companyList[key].companyName= $scope.company.name;
+                $rootScope.companyList[key].companyType= $scope.company.type;
+                $rootScope.companyList[key].marketCap= $scope.company.marketCap;
+                $rootScope.companyList[key].status= $scope.company.status;
+                $rootScope.companyList[key].address= $scope.company.headquarter;
+                $rootScope.companyList[key].keyContact= $scope.company.contact;
+                $rootScope.companyList[key].lastFYGrowthPerc= $scope.company.growth;
+
+               
+            }
+        });
+
+        $scope.message="Company details updated Successfully";
+        $scope.success=true;
+
+    }
+    }
 
 });

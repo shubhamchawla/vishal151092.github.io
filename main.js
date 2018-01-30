@@ -6,10 +6,10 @@ app.config(function($routeProvider) {
     .when("/", {
         templateUrl : "modules/home/home.html", controller:'homeController'
     })
-    .when("/red", {
+    .when("/addCompany", {
         templateUrl : "modules/addCompany/addCompany.html", controller:'addCompanyController'
     })
-    .when("/green", {
+    .when("/analytics", {
         templateUrl : "modules/analytics/analytics.html", controller: 'analyticsController'
     });
     
@@ -24,39 +24,39 @@ $rootScope.companyList = [
     {
         id:1,
         companyName: "TCS",
-        companyType: {id:1,type:"Listed"},
+        companyType: "Listed",
         marketCap: 2400,
-        status: {id:2,status:"Pending"},
+        status: "Pending",
         address: "Mumbai Air India Buildinng",
         keyContact: "N Chandra",
         lastFYGrowthPerc: 16.5
     },
     {
-        id:1,
+        id:2,
         companyName: "Infosys",
-        companyType: {id:1,type:"Listed"},
+        companyType: "Listed",
         marketCap: 2800,
-        status: {id:2,status:"Pending"},
+        status: "Pending",
         address: "Mumbai Air India Buildinng",
         keyContact: "N Chandra",
         lastFYGrowthPerc: 11.5
     },
     {
-        id:1,
+        id:3,
         companyName: "Mphasis",
-        companyType: {id:1,type:"Listed"},
+        companyType: "Listed",
         marketCap: 20,
-        status: {id:2,status:"Pending"},
+        status: "Pending",
         address: "Mumbai Air India Buildinng",
         keyContact: "N Chandra",
         lastFYGrowthPerc: 20.5
     },
     {
-        id:1,
+        id:4,
         companyName: "Newgen",
-        companyType: {id:1,type:"Listed"},
+        companyType: "Listed",
         marketCap: 2,
-        status: {id:2,status:"Pending"},
+        status: "Pending",
         address: "Mumbai Air India Buildinng",
         keyContact: "N Chandra",
         lastFYGrowthPerc: 30.5

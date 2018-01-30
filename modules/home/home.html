@@ -2,6 +2,14 @@
     <li class="active">Home </li>
   </ol>
 
+  <div class="container">
+      <div class="jumbotron">
+        <h1>AKS Acquisition Portal</h1>      
+        <p>This application helps in adding and managin details of companies that are going through or are in consideration for acquisition. </p>
+      </div>     
+    </div>
+
+
 <div class="container">
   <div class="table-responsive">          
     <table class="table">
@@ -23,20 +31,20 @@
             <tr ng-repeat="company in companyList">
               <td>{{company.id}}</td>
               <td>{{company.companyName}}</td>
-              <td>{{company.companyType.type}}</td>
+              <td>{{company.companyType}}</td>
               <td>{{company.marketCap}}</td>
               <td>{{company.address}}</td>
               <td>{{company.keyContact}}</td>
-              <td>{{company.status.status}}</td>
+              <td>{{company.status}}</td>
               <td>{{company.lastFYGrowthPerc}}</td>
               <td>
-                <a href="#" class="btn btn-info btn-sm">
-                  <span class="glyphicon glyphicon-edit"></span> Edit
-                </a>
+                <span  class="btn btn-info btn-sm pointer" ng-click="editCompany(company.id);">
+                  <span class="glyphicon glyphicon-edit" ></span> Edit
+                </span>
 
-                <a href="#" class="btn btn-danger btn-sm">
+                <span  class="btn btn-danger btn-sm pointer"  ng-click="removeCompany(company.id);">
                     <span class="glyphicon glyphicon-remove"></span> Remove 
-                  </a>
+                </span>
               </td>
             </tr>
           </tbody>
@@ -49,3 +57,10 @@
 
 
       </div>
+
+
+      <style>
+       .pointer{
+    cursor: pointer;
+  }
+      </style>
