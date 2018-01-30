@@ -29,7 +29,7 @@ $rootScope.companyList = [
         status: "Pending",
         address: "Mumbai Air India Buildinng",
         keyContact: "N Chandra",
-        lastFYGrowthPerc: 16.5
+        lastFYGrowthPerc: 16
     },
     {
         id:2,
@@ -37,9 +37,9 @@ $rootScope.companyList = [
         companyType: "Listed",
         marketCap: 2800,
         status: "Pending",
-        address: "Mumbai Air India Buildinng",
-        keyContact: "N Chandra",
-        lastFYGrowthPerc: 11.5
+        address: "Bangalore",
+        keyContact: "Vishal Sikka",
+        lastFYGrowthPerc: 11
     },
     {
         id:3,
@@ -47,9 +47,9 @@ $rootScope.companyList = [
         companyType: "Listed",
         marketCap: 20,
         status: "Pending",
-        address: "Mumbai Air India Buildinng",
-        keyContact: "N Chandra",
-        lastFYGrowthPerc: 20.5
+        address: "Pune, Maharashtra",
+        keyContact: "VK Singh",
+        lastFYGrowthPerc: 20
     },
     {
         id:4,
@@ -57,9 +57,9 @@ $rootScope.companyList = [
         companyType: "Listed",
         marketCap: 2,
         status: "Pending",
-        address: "Mumbai Air India Buildinng",
-        keyContact: "N Chandra",
-        lastFYGrowthPerc: 30.5
+        address: "Delhi",
+        keyContact: "Sulabh Raj",
+        lastFYGrowthPerc: 30
     }
     
     

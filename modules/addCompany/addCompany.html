@@ -11,21 +11,23 @@
         <strong> {{message}}</strong>
       </div>
   
-    <h2>Add Company</h2>
-    <form class="" >
+    <h2> Company Details</h2>
+    <form name="companyForm" class="" novalidate>
 
       <div class="col-md-12">
           <div class="form-group col-md-6">
               <label class="control-label col-sm-2" for="name"> Name:</label>
               <div class="col-sm-10">
-                <input type="text" ng-model="company.name" class="form-control" id="name" placeholder="Enter Company Name" name="name">
+                <input type="text" ng-model="company.name" class="form-control" id="name" placeholder="Enter Company Name" name="name" required>
+                <p ng-show="companyForm.name.$invalid && !companyForm.name.$pristine" class="help-block">Company name is required.</p>
               </div>
             </div>
 
             <div class="form-group col-md-6">
                 <label class="control-label col-sm-2" for="marketCap"> Market Cap:</label>
                 <div class="col-sm-10">          
-                  <input type="number" ng-model="company.marketCap" class="form-control" id="marketCap" placeholder="Enter Market Cap in Crores" name="marketCap">
+                  <input type="number" min="0"ng-model="company.marketCap" class="form-control" id="marketCap" placeholder="Enter Market Cap in Crores" name="marketCap" required>
+                  <p ng-show="companyForm.marketCap.$invalid && !companyForm.marketCap.$pristine" class="help-block">You name is required.</p>
                 </div>
               </div>
 
@@ -57,8 +59,8 @@
         <div class="form-group col-md-6">
             <label class="control-label col-sm-2" for="growth"> Last FY Growth:</label>
             <div class="col-sm-10">
-                <input type="number" ng-model="company.growth" class="form-control" id="growth" placeholder="Enter Last FY Growth" name="growth">
-                
+                <input type="number" min="0" max="100" ng-model="company.growth" class="form-control" id="growth" placeholder="Enter Last FY Growth" name="growth">
+                <p ng-show="companyForm.growth.$invalid && !companyForm.growth.$pristine" class="help-block">Last FY Growth is required.</p>
             </div>
           </div>
 
@@ -66,8 +68,8 @@
           <div class="form-group col-md-6">
               <label class="control-label col-sm-2" for="contact"> Key Contact:</label>
               <div class="col-sm-10">
-                  <input type="text" ng-model="company.contact" class="form-control" id="contact" placeholder="Enter name of Key Contact" name="contact">
-                  
+                  <input type="text" ng-model="company.contact" class="form-control" id="contact" placeholder="Enter name of Key Contact" name="contact" required>
+                  <p ng-show="companyForm.contact.$invalid && !companyForm.contact.$pristine" class="help-block">Key contact name is required.</p>
               </div>
             </div>
 
@@ -101,9 +103,10 @@
   
       <div class="form-group">        
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-primary btn-lg pull-right submit-btn" ng-click="submitForm();">Submit</button>
+          <button type="submit" class="btn btn-primary btn-lg pull-right submit-btn" ng-disabled="companyForm.$invalid" ng-click="submitForm();">Submit</button>
         </div>
       </div>
+
     </form>
   </div>
   
